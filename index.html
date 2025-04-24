@@ -2,37 +2,36 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>기해기사계첩 IIIF 주석 뷰어</title>
-  <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/@recogito/annotorious@2.7.3/dist/annotorious.min.css">
+  <title>기해기사계첩 주석 뷰어</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f9f9f9; }
+    img { max-width: 90%; margin: 20px auto; display: block; border: 1px solid #ccc; }
+    #anno-container { position: relative; display: inline-block; }
+  </style>
+  <!-- Annotorious 라이브러리 불러오기 -->
+  <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.css">
 </head>
 <body>
-  <div id="mirador" style="height: 100vh;"></div>
+  <h2>기해기사계첩 이미지 주석 뷰어</h2>
+  <div id="anno-container">
+    <img id="gihae-image" src="gihaegisa.jpg" alt="기해기사계첩">
+  </div>
 
   <script>
-    // Mirador 구성
-    const miradorConfig = {
-      id: "mirador",
-      windows: [{
-        manifestId: "https://hoiku.github.io/gihae-mirador/manifest.json",
-        canvasIndex: 0
-      }],
-      annotations: {
-        exportLocalStorageAnnotations: true
-      }
-    };
-
-    const viewer = Mirador.viewer(miradorConfig);
-
-    // 주석 기능 연결을 위한 postMessage 방식 사용 (커스텀용)
-    window.addEventListener("message", (event) => {
-      if (event.data && event.data.type === 'miradorInstanceReady') {
-        const instance = event.data.instance;
-
-        // 여기에 커스텀 주석 플러그인 로직 삽입 가능
-        console.log("Mirador is ready with instance:", instance);
-      }
+    const anno = Annotorious.init({
+      image: 'gihae-image',
+      widgets: ['COMMENT']
     });
+
+    // 예시: 주석 이벤트 로그
+    anno.on('createAnnotation', function(annotation) {
+      console.log('📝 주석이 추가됨:', annotation);
+    });
+
+    // 나중에 저장하고 싶으면 아래로 주석 전체 가져올 수 있음
+    // const annotations = anno.getAnnotations();
+    // console.log(JSON.stringify(annotations));
   </script>
 </body>
 </html>
