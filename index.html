@@ -2,20 +2,22 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Annotorious 주석 작성기</title>
+  <title>Annotorious + Manifest 변환기</title>
   <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.css">
   <style>
-    body { font-family: sans-serif; text-align: center; background: #f8f8f8; padding: 2em; }
-    img { max-width: 90%; margin: 1em auto; border: 1px solid #ccc; }
-    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    body { font-family: sans-serif; text-align: center; background: #f9f9f9; padding: 2em; }
+    img { max-width: 90%; margin: 1em auto; display: block; border: 1px solid #ccc; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; }
   </style>
 </head>
 <body>
-  <h2>기해기사계첩 주석 작성기</h2>
+  <h2>기해기사계첩 주석 + IIIF Manifest 변환</h2>
   <img id="gihae-img" src="gihaegisa.jpg" alt="기해기사계첩">
-  <br>
-  <button onclick="downloadJSON()">📥 주석 저장 (annotations.json)</button>
+  <div>
+    <button onclick="downloadAnnotations()">📥 주석만 저장 (annotations.json)</button>
+    <button onclick="downloadManifest()">🗂 Manifest 저장 (manifest.json)</button>
+  </div>
 
   <script>
     const anno = Annotorious.init({
@@ -23,12 +25,76 @@
       widgets: ['COMMENT']
     });
 
-    function downloadJSON() {
+    function downloadAnnotations() {
       const annotations = anno.getAnnotations();
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(annotations, null, 2));
       const a = document.createElement('a');
       a.setAttribute("href", dataStr);
       a.setAttribute("download", "annotations.json");
+      a.click();
+    }
+
+    function convertToManifest(imageURL, annotations, width = 1000, height = 600) {
+      return {
+        "@context": "http://iiif.io/api/presentation/3/context.json",
+        "id": "https://yourdomain.org/manifest.json",
+        "type": "Manifest",
+        "label": { "ko": ["기해기사계첩"] },
+        "items": [
+          {
+            "id": "https://yourdomain.org/canvas/1",
+            "type": "Canvas",
+            "width": width,
+            "height": height,
+            "items": [
+              {
+                "id": "https://yourdomain.org/page/1",
+                "type": "AnnotationPage",
+                "items": [
+                  {
+                    "id": "https://yourdomain.org/image/1",
+                    "type": "Annotation",
+                    "motivation": "painting",
+                    "body": {
+                      "type": "Image",
+                      "id": imageURL,
+                      "format": "image/jpeg",
+                      "width": width,
+                      "height": height
+                    },
+                    "target": "https://yourdomain.org/canvas/1"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "id": "https://yourdomain.org/anno/page1",
+            "type": "AnnotationPage",
+            "items": annotations.map((a, i) => {
+              const xywh = a.target.selector.value.replace("pixel:", "");
+              return {
+                "id": `https://yourdomain.org/anno/${i + 1}`,
+                "type": "Annotation",
+                "motivation": "commenting",
+                "body": a.body[0],
+                "target": `https://yourdomain.org/canvas/1#xywh=${xywh}`
+              };
+            })
+          }
+        ]
+      };
+    }
+
+    function downloadManifest() {
+      const annotations = anno.getAnnotations();
+      const manifest = convertToManifest("gihaegisa.jpg", annotations);
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(manifest, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "manifest.json");
       a.click();
     }
   </script>
