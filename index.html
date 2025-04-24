@@ -2,19 +2,37 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>기해기사계첩 IIIF 뷰어</title>
+  <title>기해기사계첩 IIIF 주석 뷰어</title>
   <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@recogito/annotorious@2.7.3/dist/annotorious.min.css">
 </head>
 <body>
   <div id="mirador" style="height: 100vh;"></div>
+
   <script>
+    // Mirador 구성
     const miradorConfig = {
       id: "mirador",
       windows: [{
-        manifestId: "https://hoiku.github.io/gihae-mirador/manifest.json"
-      }]
+        manifestId: "https://hoiku.github.io/gihae-mirador/manifest.json",
+        canvasIndex: 0
+      }],
+      annotations: {
+        exportLocalStorageAnnotations: true
+      }
     };
-    Mirador.viewer(miradorConfig);
+
+    const viewer = Mirador.viewer(miradorConfig);
+
+    // 주석 기능 연결을 위한 postMessage 방식 사용 (커스텀용)
+    window.addEventListener("message", (event) => {
+      if (event.data && event.data.type === 'miradorInstanceReady') {
+        const instance = event.data.instance;
+
+        // 여기에 커스텀 주석 플러그인 로직 삽입 가능
+        console.log("Mirador is ready with instance:", instance);
+      }
+    });
   </script>
 </body>
 </html>
