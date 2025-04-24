@@ -2,36 +2,35 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>기해기사계첩 주석 뷰어</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; background: #f9f9f9; }
-    img { max-width: 90%; margin: 20px auto; display: block; border: 1px solid #ccc; }
-    #anno-container { position: relative; display: inline-block; }
-  </style>
-  <!-- Annotorious 라이브러리 불러오기 -->
+  <title>Annotorious 주석 작성기</title>
   <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@recogito/annotorious@2.7.3/dist/annotorious.min.css">
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f8f8f8; padding: 2em; }
+    img { max-width: 90%; margin: 1em auto; border: 1px solid #ccc; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+  </style>
 </head>
 <body>
-  <h2>기해기사계첩 이미지 주석 뷰어</h2>
-  <div id="anno-container">
-    <img id="gihae-image" src="gihaegisa.jpg" alt="기해기사계첩">
-  </div>
+  <h2>기해기사계첩 주석 작성기</h2>
+  <img id="gihae-img" src="gihaegisa.jpg" alt="기해기사계첩">
+  <br>
+  <button onclick="downloadJSON()">📥 주석 저장 (annotations.json)</button>
 
   <script>
     const anno = Annotorious.init({
-      image: 'gihae-image',
+      image: 'gihae-img',
       widgets: ['COMMENT']
     });
 
-    // 예시: 주석 이벤트 로그
-    anno.on('createAnnotation', function(annotation) {
-      console.log('📝 주석이 추가됨:', annotation);
-    });
-
-    // 나중에 저장하고 싶으면 아래로 주석 전체 가져올 수 있음
-    // const annotations = anno.getAnnotations();
-    // console.log(JSON.stringify(annotations));
+    function downloadJSON() {
+      const annotations = anno.getAnnotations();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(annotations, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "annotations.json");
+      a.click();
+    }
   </script>
 </body>
 </html>
