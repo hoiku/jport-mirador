@@ -1,0 +1,59 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://hoiku.github.io/gihae-mirador/manifest.json",
+  "type": "Manifest",
+  "label": {
+    "ko": ["기해기사계첩"]
+  },
+  "items": [
+    {
+      "id": "https://hoiku.github.io/gihae-mirador/canvas/1",
+      "type": "Canvas",
+      "width": 1000,
+      "height": 600,
+      "label": {
+        "ko": ["제1면"]
+      },
+      "items": [
+        {
+          "id": "https://hoiku.github.io/gihae-mirador/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://hoiku.github.io/gihae-mirador/image/1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "type": "Image",
+                "id": "https://hoiku.github.io/gihae-mirador/gihaegisa.jpg",
+                "format": "image/jpeg",
+                "width": 1000,
+                "height": 600
+              },
+              "target": "https://hoiku.github.io/gihae-mirador/canvas/1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": "https://hoiku.github.io/gihae-mirador/anno/page1",
+      "type": "AnnotationPage",
+      "items": [
+        {
+          "id": "https://hoiku.github.io/gihae-mirador/anno/1",
+          "type": "Annotation",
+          "motivation": "commenting",
+          "body": {
+            "type": "TextualBody",
+            "value": "왕의 어가 행렬",
+            "language": "ko"
+          },
+          "target": "https://hoiku.github.io/gihae-mirador/canvas/1#xywh=150,220,120,90"
+        }
+      ]
+    }
+  ]
+}
