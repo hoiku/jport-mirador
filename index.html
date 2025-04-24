@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>기해기사계첩 뷰어</title>
-  </head>
-  <body>
-    <h1>Hello Mirador!</h1>
-  </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기해기사계첩 IIIF 뷰어</title>
+  <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+</head>
+<body>
+  <div id="mirador" style="height: 100vh;"></div>
+  <script>
+    const miradorConfig = {
+      id: "mirador",
+      windows: [{
+        manifestId: "https://hoiku.github.io/gihae-mirador/manifest.json"
+      }]
+    };
+    Mirador.viewer(miradorConfig);
+  </script>
+</body>
 </html>
