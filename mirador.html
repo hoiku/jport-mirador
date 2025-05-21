@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>JPORT Mirador 뷰어</title>
   <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
   <style>
     body { margin: 0; padding: 0; }
-    #viewer { height: 100vh; }
+    #viewer { height: 100vh; width: 100vw; }
   </style>
 </head>
 <body>
@@ -15,10 +15,18 @@
   <script>
     Mirador.viewer({
       id: "viewer",
-      windows: [{
-        manifestId: "https://hoiku.github.io/jport-mirador/manifest.json",  // 당신의 실제 manifest.json URL
-        canvasIndex: 0
-      }]
+      windows: [
+        {
+          manifestId: "https://hoiku.github.io/jport-mirador/manifest.json",
+          canvasIndex: 0,
+          view: "single",
+          thumbnailNavigationPosition: "off",
+          imageToolsEnabled: true
+        }
+      ],
+      workspaceControlPanel: {
+        enabled: false
+      }
     });
   </script>
 </body>
