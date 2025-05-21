@@ -12,8 +12,8 @@
   </style>
 </head>
 <body>
-  <h2>기해기사계첩 주석 + IIIF Manifest 변환</h2>
-  <img id="gihae-img" src="gihaegisa.jpg" alt="기해기사계첩">
+  <h2>초상화 주석 + IIIF Manifest 변환</h2>
+  <img id="jport-img" src="seo016629-000-007.jpg" alt="이하응복건심의본초상">
   <div>
     <button onclick="downloadAnnotations()">📥 주석만 저장 (annotations.json)</button>
     <button onclick="downloadManifest()">🗂 Manifest 저장 (manifest.json)</button>
@@ -21,7 +21,7 @@
 
   <script>
     const anno = Annotorious.init({
-      image: 'gihae-img',
+      image: 'jport-img',
       widgets: ['COMMENT']
     });
 
