@@ -1,0 +1,45 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "https://hoiku.github.io/jport-mirador/comments.json",
+  "type": "AnnotationPage",
+  "items": [
+    {
+      "id": "https://hoiku.github.io/jport-mirador/anno/1",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "의복 주석",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "SvgSelector",
+          "value": "<svg><polygon points=\"150,200 270,200 270,290 150,290\"/></svg>"
+        }
+      }
+    },
+    {
+      "id": "https://hoiku.github.io/jport-mirador/anno/2",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "얼굴 영역",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "SvgSelector",
+          "value": "<svg><path d=\"M 120,150 L 180,150 L 180,210 L 120,210 Z\"/></svg>"
+        }
+      }
+    }
+  ]
+}
