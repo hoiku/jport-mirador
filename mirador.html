@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>JPORT Mirador 뷰어</title>
+  <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #viewer { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="viewer"></div>
+
+  <script>
+    Mirador.viewer({
+      id: "viewer",
+      windows: [{
+        manifestId: "https://hoiku.github.io/jport-mirador/manifest.json",  // 당신의 실제 manifest.json URL
+        canvasIndex: 0
+      }]
+    });
+  </script>
+</body>
+</html>
