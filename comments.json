@@ -4,12 +4,12 @@
   "type": "AnnotationPage",
   "items": [
     {
-      "id": "https://hoiku.github.io/jport-mirador/anno/1",
+      "id": "4621ec93-beb9-434b-b748-895857536721",
       "type": "Annotation",
       "motivation": "commenting",
       "body": {
         "type": "TextualBody",
-        "value": "의복 주석",
+        "value": "의복",
         "format": "text/plain",
         "language": "ko"
       },
@@ -17,18 +17,19 @@
         "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
         "type": "SpecificResource",
         "selector": {
-          "type": "SvgSelector",
-          "value": "<svg><polygon points=\"150,200 270,200 270,290 150,290\"/></svg>"
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=540,650,200,200"
         }
       }
     },
     {
-      "id": "https://hoiku.github.io/jport-mirador/anno/2",
+      "id": "150b9a73-6ec7-4d85-a878-76ed153798ce",
       "type": "Annotation",
       "motivation": "commenting",
       "body": {
         "type": "TextualBody",
-        "value": "얼굴 영역",
+        "value": "옥색포",
         "format": "text/plain",
         "language": "ko"
       },
@@ -36,8 +37,129 @@
         "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
         "type": "SpecificResource",
         "selector": {
-          "type": "SvgSelector",
-          "value": "<svg><path d=\"M 120,150 L 180,150 L 180,210 L 120,210 Z\"/></svg>"
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=600,1400,300,300"
+        }
+      }
+    },
+    {
+      "id": "e1a40ce7-a937-46b6-9fb1-fc7037e970c8",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "심의",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=500,900,150,150"
+        }
+      }
+    },
+    {
+      "id": "5fd884bb-987f-4b2a-8845-a97b787d877b",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "제목",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=1200,100,150,500"
+        }
+      }
+    },
+    {
+      "id": "fe89cbd9-a039-42e7-8c45-5b5091349c28",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "날짜",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=1200,600,200,300"
+        }
+      }
+    },
+    {
+      "id": "e58c04ad-4330-4ccd-8879-ddd8fccf11d9",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "화사",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=1250,900,150,300"
+        }
+      }
+    },
+    {
+      "id": "fdc7a427-3004-40a9-b9e9-5cb9c703f969",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "장황",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=1220,930,120,220"
+        }
+      }
+    },
+    {
+      "id": "98bef62d-91ca-4f2a-a94b-8e0c97ef8f25",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "body": {
+        "type": "TextualBody",
+        "value": "돗자리",
+        "format": "text/plain",
+        "language": "ko"
+      },
+      "target": {
+        "source": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
+        "type": "SpecificResource",
+        "selector": {
+          "type": "FragmentSelector",
+          "conformsTo": "http://www.w3.org/TR/media-frags/",
+          "value": "xywh=400,1500,300,400"
         }
       }
     }
