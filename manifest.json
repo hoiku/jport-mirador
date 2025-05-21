@@ -30,15 +30,14 @@
               "target": "https://hoiku.github.io/jport-mirador/canvas/1"
             }
           ]
-         
+        }
+      ],
+      "annotations": [
+        {
+          "id": "https://hoiku.github.io/jport-mirador/comments.json",
+          "type": "AnnotationPage"
         }
       ]
-       , "annotations": [
-            {
-              "id": "https://hoiku.github.io/jport-mirador/comments.json",
-              "type": "AnnotationPage"
-            }
-          ]
     }
   ]
 }
