@@ -37,22 +37,22 @@
     function convertToManifest(imageURL, annotations, width = 1000, height = 600) {
       return {
         "@context": "http://iiif.io/api/presentation/3/context.json",
-        "id": "https://yourdomain.org/manifest.json",
+        "id": "https://hoiku.github.io/jport-mirador/manifest.json",
         "type": "Manifest",
-        "label": { "ko": ["기해기사계첩"] },
+        "label": { "ko": ["초상화 이미지 주석 연구"] },
         "items": [
           {
-            "id": "https://yourdomain.org/canvas/1",
+            "id": "https://hoiku.github.io/jport-mirador/canvas/1",
             "type": "Canvas",
             "width": width,
             "height": height,
             "items": [
               {
-                "id": "https://yourdomain.org/page/1",
+                "id": "https://hoiku.github.io/jport-mirador/page/1",
                 "type": "AnnotationPage",
                 "items": [
                   {
-                    "id": "https://yourdomain.org/image/1",
+                    "id": "https://hoiku.github.io/jport-mirador/image/1",
                     "type": "Annotation",
                     "motivation": "painting",
                     "body": {
@@ -62,7 +62,7 @@
                       "width": width,
                       "height": height
                     },
-                    "target": "https://yourdomain.org/canvas/1"
+                    "target": "https://hoiku.github.io/jport-mirador/canvas/1"
                   }
                 ]
               }
@@ -71,16 +71,16 @@
         ],
         "annotations": [
           {
-            "id": "https://yourdomain.org/anno/page1",
+            "id": "https://hoiku.github.io/jport-mirador/anno/page1",
             "type": "AnnotationPage",
             "items": annotations.map((a, i) => {
               const xywh = a.target.selector.value.replace("pixel:", "");
               return {
-                "id": `https://yourdomain.org/anno/${i + 1}`,
+                "id": `https://hoiku.github.io/jport-mirador/anno/${i + 1}`,
                 "type": "Annotation",
                 "motivation": "commenting",
                 "body": a.body[0],
-                "target": `https://yourdomain.org/canvas/1#xywh=${xywh}`
+                "target": `https://hoiku.github.io/jport-mirador/canvas/1#xywh=${xywh}`
               };
             })
           }
