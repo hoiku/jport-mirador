@@ -3,7 +3,7 @@
   "id": "https://hoiku.github.io/gihae-mirador/manifest.json",
   "type": "Manifest",
   "label": {
-    "ko": ["기해기사계첩"]
+    "ko": ["초상화연구"]
   },
   "items": [
     {
@@ -22,7 +22,7 @@
               "motivation": "painting",
               "body": {
                 "type": "Image",
-                "id": "https://hoiku.github.io/gihae-mirador/gihaegisa.jpg",
+                "id": "https://hoiku.github.io/jport-mirador/seo016629-000-007.jpg",
                 "format": "image/jpeg",
                 "width": 1000,
                 "height": 600
