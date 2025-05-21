@@ -9,8 +9,8 @@
     {
       "id": "https://hoiku.github.io/jport-mirador/canvas/1",
       "type": "Canvas",
-      "width": 2000,
-      "height": 2000,
+      "width": 1000,
+      "height": 600,
       "items": [
         {
           "id": "https://hoiku.github.io/jport-mirador/page/1",
@@ -34,7 +34,7 @@
       ],
       "annotations": [
         {
-          "id": "https://hoiku.github.io/jport-mirador/comments.json",
+          "id": "https://hoiku.github.io/jport-mirador/annotations.json",
           "type": "AnnotationPage"
         }
       ]
